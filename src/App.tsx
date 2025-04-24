@@ -59,9 +59,7 @@ const App = () => {
       </div>
 
       {/* Dynamic rendering tab if exists */}
-      <div className="pb-20">
-        {TabComponent && <TabComponent />}
-      </div>
+      <div className="pb-20">{TabComponent && <TabComponent />}</div>
     </>
   );
 };
