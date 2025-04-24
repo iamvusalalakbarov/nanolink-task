@@ -129,7 +129,14 @@ const LiveTab = () => {
         <Accordion type="single" collapsible className="space-y-5">
           {liveTabTableData.map((item, index) => (
             <AccordionItem key={index} value={index.toString()}>
-              <AccordionTrigger withoutArrow={item.status !== Status.Default}>
+              <AccordionTrigger
+                withoutArrow={item.status !== Status.Default}
+                onClick={(e) => {
+                  if (item.status !== Status.Default) {
+                    e.preventDefault();
+                  }
+                }}
+              >
                 <div className="flex flex-wrap items-center justify-between w-full">
                   {item.status === Status.InquirySubmitted && (
                     <div className="mb-2.5 text-yellow-main font-medium w-full">
