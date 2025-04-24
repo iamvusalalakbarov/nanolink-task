@@ -17,6 +17,8 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Rank from "@/components/Rank.tsx";
+import TableRowDivider from "@/components/TableRowDivider.tsx";
 
 const filterCategories = {
   gender: ["MAG", "WAG"],
@@ -47,7 +49,9 @@ const ResultsTab = () => {
 
   return (
     <>
+      {/* Desktop View */}
       <div className="hidden lg:block wrapper mt-14">
+        {/* Filters */}
         <div className="space-y-12 mb-24">
           <div className="flex items-center justify-center gap-x-5">
             {Object.entries(filterCategories).map(([group, options], i) => (
@@ -103,7 +107,9 @@ const ResultsTab = () => {
           </div>
         </div>
 
+        {/* Table */}
         <div className="space-y-12">
+          {/* Table Headers */}
           <div className="flex justify-between items-center py-1">
             <div className="flex items-center">
               <div className="w-20">Rank</div>
@@ -120,15 +126,14 @@ const ResultsTab = () => {
             </div>
           </div>
 
+          {/* Table Content */}
           <div className="space-y-4">
             {resultsTabTableData.map((item, i) => (
               <React.Fragment key={i}>
                 <div className="flex justify-between items-start">
                   <div className="flex items-center">
                     <div className="w-20">
-                      <span className="flex items-center justify-center size-8 py-[5px] px-3 bg-blue-main">
-                        {i + 1}
-                      </span>
+                      <Rank>{i + 1}</Rank>
                     </div>
 
                     <div className="flex items-center gap-x-2 w-[92px]">
@@ -173,32 +178,16 @@ const ResultsTab = () => {
                   </div>
                 </div>
 
-                {i + 1 !== liveTabTableData.length && (
-                  <div className="h-3 flex items-center">
-                    <div
-                      className="h-px w-full relative"
-                      style={{
-                        background:
-                          "linear-gradient(90deg, rgba(106, 33, 244, 0) 0%, rgba(106, 33, 244, 0.9) 44.79%)",
-                      }}
-                    >
-                      <div
-                        className="w-[132px] h-3 absolute top-1/2 -translate-y-1/2 left-[728px]"
-                        style={{
-                          background:
-                            "radial-gradient(49.08% 52.1% at 49.96% 50.21%, rgba(106, 33, 244, 0.5) 0%, rgba(18, 20, 45, 0) 100%)",
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                )}
+                {i + 1 !== liveTabTableData.length && <TableRowDivider />}
               </React.Fragment>
             ))}
           </div>
         </div>
       </div>
 
+      {/* Mobile View */}
       <div className="wrapper lg:hidden mt-6 space-y-6">
+        {/* Filters */}
         <div className="flex justify-end items-center">
           <DropdownMenu>
             <DropdownMenuTrigger>
@@ -273,6 +262,7 @@ const ResultsTab = () => {
           </DropdownMenu>
         </div>
 
+        {/* Active Filters */}
         <div className="flex flex-wrap items-center gap-4">
           {activeValues.map((value, i) => (
             <div
@@ -296,9 +286,7 @@ const ResultsTab = () => {
             <AccordionItem key={i} value={i.toString()}>
               <AccordionTrigger>
                 <div className="flex items-center gap-x-6">
-                  <span className="flex items-center justify-center size-8 py-[5px] px-3 bg-blue-main">
-                    {i + 1}
-                  </span>
+                  <Rank>{i + 1}</Rank>
 
                   <span className="uppercase">{item.country}</span>
 

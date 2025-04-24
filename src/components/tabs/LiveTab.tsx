@@ -7,13 +7,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion.tsx";
+import TableRowDivider from "@/components/TableRowDivider.tsx";
+import GymnastCountry from "@/components/GymnastCountry.tsx";
+import Rank from "@/components/Rank.tsx";
 
 const tableHeaders = ["App", "AA", "Team"];
 
 const LiveTab = () => {
   return (
     <>
+      {/* Desktop View */}
       <div className="hidden lg:block wrapper mt-24 space-y-12">
+        {/* Table Headers */}
         <div className="flex justify-end items-center gap-x-12">
           {tableHeaders.map((tableHeader, index) => (
             <div
@@ -25,9 +30,11 @@ const LiveTab = () => {
           ))}
         </div>
 
+        {/*Table Content */}
         <div className="space-y-4">
           {liveTabTableData.map((item, index) => (
             <React.Fragment key={index}>
+              {/* Table Row */}
               <div className="flex items-center">
                 {item.status === Status.InquirySubmitted && (
                   <div className="py-1 mr-4">
@@ -49,17 +56,7 @@ const LiveTab = () => {
                   </div>
 
                   <div className="py-1 w-[72px]">
-                    <div className="flex items-center gap-x-2">
-                      <div
-                        className={`w-5 h-[14px] rounded-xs bg-no-repeat bg-center bg-cover`}
-                        style={{
-                          boxShadow: "0px 1px 4px 0px #0000004D",
-                          backgroundImage: `url('/flags/${item.country}.png')`,
-                        }}
-                      ></div>
-
-                      <span className="uppercase">{item.country}</span>
-                    </div>
+                    <GymnastCountry country={item.country} />
                   </div>
 
                   <div className="py-1 w-6">
@@ -91,9 +88,7 @@ const LiveTab = () => {
                       {item?.stats?.map((stat, j) => (
                         <div key={j} className="flex items-center gap-x-3">
                           <span>{stat.value.toFixed(3)}</span>
-                          <span className="flex items-center justify-center size-8 py-[5px] px-3 bg-blue-main">
-                            {stat.rank}
-                          </span>
+                          <Rank>{stat.rank}</Rank>
                         </div>
                       ))}
                     </div>
@@ -101,30 +96,13 @@ const LiveTab = () => {
                 )}
               </div>
 
-              {index + 1 !== liveTabTableData.length && (
-                <div className="h-3 flex items-center">
-                  <div
-                    className="h-px w-full relative"
-                    style={{
-                      background:
-                        "linear-gradient(90deg, rgba(106, 33, 244, 0) 0%, rgba(106, 33, 244, 0.9) 44.79%)",
-                    }}
-                  >
-                    <div
-                      className="w-[132px] h-3 absolute top-1/2 -translate-y-1/2 left-[728px]"
-                      style={{
-                        background:
-                          "radial-gradient(49.08% 52.1% at 49.96% 50.21%, rgba(106, 33, 244, 0.5) 0%, rgba(18, 20, 45, 0) 100%)",
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              )}
+              {index + 1 !== liveTabTableData.length && <TableRowDivider />}
             </React.Fragment>
           ))}
         </div>
       </div>
 
+      {/* Mobile View */}
       <div className="lg:hidden wrapper mt-12">
         <Accordion type="single" collapsible className="space-y-5">
           {liveTabTableData.map((item, index) => (
@@ -192,9 +170,7 @@ const LiveTab = () => {
 
                         <div className="flex items-center gap-x-3">
                           <span>{stat.value.toFixed(3)}</span>
-                          <span className="flex items-center justify-center size-8 py-[5px] px-3 bg-blue-main">
-                            {stat.rank}
-                          </span>
+                          <Rank>{stat.rank}</Rank>
                         </div>
                       </div>
                     ))}
