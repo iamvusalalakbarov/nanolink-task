@@ -14,6 +14,11 @@ export enum Country {
   FRA = "fra",
   ISR = "isr",
   GER = "ger",
+  EST = "est",
+  POR = "por",
+  POL = "pol",
+  NED = "ned",
+  GBR = "gbr",
 }
 
 export enum Status {
