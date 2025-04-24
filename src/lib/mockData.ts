@@ -174,3 +174,96 @@ export const liveTabTableData = [
     status: Status.InquirySubmitted,
   },
 ];
+
+export const apparatus = [
+  {
+    type: Apparatus.FloorExercise,
+    title: "Floor Exercise",
+  },
+  {
+    type: Apparatus.PommelHorse,
+    title: "Pommel Horse",
+  },
+  {
+    type: Apparatus.Rings,
+    title: "Rings",
+  },
+  {
+    type: Apparatus.Vault,
+    title: "Vault",
+  },
+  {
+    type: Apparatus.ParallelBars,
+    title: "Parallel Bars",
+  },
+  {
+    type: Apparatus.HorizontalBar,
+    title: "Horizontal Bar",
+  },
+];
+
+export const resultsTabTableData = [
+  {
+    country: Country.RUS,
+    bib: 212,
+    name: "Bonartsev Aleksandr",
+    d: 43.833,
+    e: 43.833,
+    pen: 43.833,
+    total: 102.256,
+  },
+  {
+    country: Country.EST,
+    bib: 132,
+    name: "Bonartsev Aleksandr",
+    d: 43.833,
+    e: 43.833,
+    pen: 43.833,
+    total: 102.256,
+  },
+  {
+    country: Country.POR,
+    bib: 624,
+    name: "Bonartsev Aleksandr",
+    d: 43.833,
+    e: 43.833,
+    pen: 43.833,
+    total: 102.256,
+  },
+  {
+    country: Country.ISR,
+    bib: 624,
+    name: "Bonartsev Aleksandr",
+    d: 43.833,
+    e: 43.833,
+    pen: 43.833,
+    total: 102.256,
+  },
+  {
+    country: Country.POL,
+    bib: 401,
+    name: "Bonartsev Aleksandr",
+    d: 43.833,
+    e: 43.833,
+    pen: 43.833,
+    total: 102.256,
+  },
+  {
+    country: Country.NED,
+    bib: 102,
+    name: "Bonartsev Aleksandr",
+    d: 43.833,
+    e: 43.833,
+    pen: 43.833,
+    total: 102.256,
+  },
+  {
+    country: Country.GBR,
+    bib: 102,
+    name: "Bonartsev Aleksandr",
+    d: 43.833,
+    e: 43.833,
+    pen: 43.833,
+    total: 102.256,
+  },
+];
